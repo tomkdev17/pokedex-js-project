@@ -1,3 +1,5 @@
+
+// This is my pokemon repository
 let pokemonList = [
 
 	{
@@ -19,12 +21,6 @@ let pokemonList = [
 	}
 	];
 
-for (let i = 0; i < pokemonList.length; i++) {
-
-	document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')');
-
-	if (pokemonList[i].height > 0.6) {
-		document.write(' - Wow! That\'s a big Pokémon! ');
-	}
-	document.write('<br>');
-}
+pokemonList.forEach(function (pokemon){
+	document.write(pokemon.name + ': [type: ' + pokemon.type + '] [height: ' + pokemon.height + '] </br>');
+});
