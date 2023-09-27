@@ -1,6 +1,7 @@
 
 // This is my pokemon repository
-let pokemonList = [
+let pokemonRepository = (function(){
+	let pokemonList = [
 
 	{
 		name: 'Bulbasaur', 
@@ -21,6 +22,23 @@ let pokemonList = [
 	}
 	];
 
-pokemonList.forEach(function (pokemon){
-	document.write(pokemon.name + ': [type: ' + pokemon.type + '] [height: ' + pokemon.height + '] </br>');
-});
+	function  getAll (){
+		return pokemonList;
+	}
+
+	function add (pokemon){
+		pokemonList.push(pokemon);
+	}
+	return {
+		getAll: getAll,
+		add: add 	
+	}
+})() 
+
+pokemonRepository.getAll().forEach(function (pokemon){
+	document.write(pokemon.name + ': [type: ' + pokemon.type + '] [height: ' + pokemon.height + ']');
+	if (pokemon.height > 0.6){
+		document.write(' Wow! That\'s a big Pokémon!');
+	}
+	document.write('</br>');
+})
