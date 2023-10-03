@@ -1,27 +1,9 @@
 
 // This is my pokemon repository
 let pokemonRepository = (function(){
-	let pokemonList = [
-
-	{
-		name: 'Bulbasaur', 
-		type: ['grass', 'poison'], 
-		height: 0.7
-	},
-
-	{
-		name: 'Charmander', 
-		type: ['fire'], 
-		height: 0.6
-	},
-
-	{
-		name: 'Squirtle', 
-		type: ['water'], 
-		height: 0.5
-	}
-	];
-
+	let pokemonList = [];
+	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+	// This function allows pokmeonList to be called out of pokmeonRepository
 	function  getAll (){
 		return pokemonList;
 	}
@@ -51,18 +33,59 @@ let pokemonRepository = (function(){
 			showDetails(pokemon); 
 		})
 	} 
+
 	//This function logs the pokemon details to the console when the name is clicked (see above function)
 	function showDetails(pokemon){
+		loadDetails(pokemon).then(function () {
 			console.log(pokemon);
-		}
+		});
+	}
+
+	function loadList() {
+		return fetch(apiUrl).then(function (response) {
+			return response.json();
+		}).then(function (json) {
+			json.results.forEach(function (item) {
+				let pokemon = {
+					name: item.name,
+					detailsUrl: item.url 
+				};
+				add(pokemon);
+			});
+		}).catch(function (e) {
+			console.error(e);
+		});
+	}
+
+	function loadDetails(item) {
+		let url = item.detailsUrl;
+		return fetch(url).then(function (response) {
+			return response.json();
+		}).then(function (details) {
+			item.imageUrl = details.sprites.front_default;
+			item.height = details.height;
+			item.types = details.types; 
+		}).catch(function (e) {
+			console.error(e);
+		});
+	}
+
 	
 	return {
 		getAll: getAll,
 		add: add, 	
-		addListItem: addListItem
+		addListItem: addListItem,
+		loadList: loadList,
+		loadDetails: loadDetails
 	};
 })(); 
 // This prints the names of the pokemon to their respective buttons
-pokemonRepository.getAll().forEach(function (pokemon){
+pokemonRepository.loadList().then(function (){
+	pokemonRepository.getAll().forEach(function (pokemon){
 	pokemonRepository.addListItem(pokemon);
 });
+})
+
+
+
+	
