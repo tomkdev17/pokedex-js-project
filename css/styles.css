@@ -24,9 +24,11 @@ body {
 
 .pokemon-list {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 20px;
+	grid-template-columns: 200px 200px 200px;
+	grid-gap: 30px;
+	justify-content: center;
 	margin: auto;
+	list-style: none;
 
 }
 
@@ -41,3 +43,79 @@ body {
 		grid-template-columns: 1fr 1fr; 
 	}
 }
+
+.loading-message {
+	display: none;
+}
+
+.loading {
+	display: block;
+	position: absolute;
+	bottom: 0 ;
+	right: 0 ;
+}
+
+#pokemodal-container {
+	display: none;
+}
+
+#pokemodal-container.is-visible {
+	position: fixed;
+	padding: 20px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 999; 
+	overflow: auto;
+	display: grid;
+	text-align: center;
+}
+
+.modal {
+	margin: auto;
+	display: inline-block;
+	box-sizing: border-box;
+ 	background: #fff;
+	padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.modal-close {
+	float: right;
+	border: 0;
+	background: none;
+	color: #777; 
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*This is to keep my neck from breaking*/

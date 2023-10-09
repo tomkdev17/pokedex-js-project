@@ -1,2 +1,2 @@
 # pokedex-js-project
-This will absolutely not be a pokedex in the future 
+This application loads a list of pokemon from the PokéAPI and displays their information with a click.
