@@ -5,7 +5,8 @@ body {
 }
 
 .poke-button {
-	background-color: #C6DAFB;
+	color: white;
+	background-color: #9e0b0b;
 	border: none;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 	font-family: inherit;
@@ -32,66 +33,18 @@ body {
 
 }
 
-@media all and (max-width: 500px) {
-	.pokemon-list {
-		grid-template-columns: 1fr; 
-	}
-}
-
-@media all and (min-width: 500px) and (max-width: 750px){
-	.pokemon-list {
-		grid-template-columns: 1fr 1fr; 
-	}
-}
-
 .loading-message {
 	display: none;
 }
 
 .loading {
 	display: block;
-	position: absolute;
-	bottom: 0 ;
-	right: 0 ;
-}
-
-#pokemodal-container {
-	display: none;
-}
-
-#pokemodal-container.is-visible {
 	position: fixed;
-	padding: 20px;
-	box-sizing: border-box;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 999; 
-	overflow: auto;
-	display: grid;
-	text-align: center;
+	bottom: 1px ;
+	right: 1px ;
 }
 
-.modal {
-	margin: auto;
-	display: inline-block;
-	box-sizing: border-box;
- 	background: #fff;
-	padding: 15px;
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
-}
 
-.modal-close {
-	float: right;
-	border: 0;
-	background: none;
-	color: #777; 
-	text-decoration: underline;
-}
 
 
 
