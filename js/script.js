@@ -9,9 +9,9 @@ let pokemonRepository = (function(){
 	}
 	//Adds a pokemon to the repository
 	function add (pokemon){
-	 	if (typeof pokemon !== 'object'){
-	 		console.log('New Pokemon submission must be an item');
-	 	} else {
+		if (typeof pokemon !== 'object'){
+			console.log('New Pokemon submission must be an item');
+		} else {
 		pokemonList.push(pokemon);
 		}
 	}
@@ -29,7 +29,7 @@ let pokemonRepository = (function(){
 		listItem.appendChild(button);
 		pokemonList.appendChild(listItem);
 
-		button.addEventListener('click', function(event){
+		button.addEventListener('click', function(){
 			showDetails(pokemon); 
 		});
 	} 
@@ -68,7 +68,6 @@ let pokemonRepository = (function(){
 		let url = item.detailsUrl;
 		return fetch(url).then(function (response) {
 			return response.json();
-			showLoadingMessage();
 		}).then(function (details) {
 			item.imageUrl = details.sprites.front_default;
 			item.height = details.height;
@@ -120,9 +119,9 @@ let pokemonRepository = (function(){
 		pokeHeight.innerText = 'Height: ' + pokemon.height;
 
 		let pokeTypes = document.createElement('p');
-	 	pokeTypes.innerText = 'Types: ' + pokemon.typesArray;	
-	 	
-	 	modalBody.append(pokeImg, pokeHeight, pokeTypes);
+		pokeTypes.innerText = 'Types: ' + pokemon.typesArray;	
+		
+		modalBody.append(pokeImg, pokeHeight, pokeTypes);
 
 	}
 

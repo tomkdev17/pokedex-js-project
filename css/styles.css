@@ -16,6 +16,10 @@ body {
 	transition: opacity .2s;  
 }
 
+.poke-button:hover {
+	background-color: #4a0404;
+}
+
 .pokedex-div {
 	margin: auto;
 	padding: 10px;
@@ -31,6 +35,18 @@ body {
 	margin: auto;
 	list-style: none;
 
+}
+
+.modal-content {
+	text-align: center;
+}
+
+.modal-header, .modal-footer {
+	background-color: #9e0b0b;
+}
+
+.modal-title {
+	color: white;
 }
 
 .loading-message {
