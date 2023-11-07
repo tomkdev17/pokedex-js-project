@@ -7,34 +7,33 @@ body {
 .poke-button {
 	color: white;
 	background-color: #9e0b0b;
-	border: none;
-	border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-	font-family: inherit;
-	display: inline-block;
 	padding: 10px;
-	text-decoration: none; 
-	transition: opacity .2s;  
 }
 
 .poke-button:hover {
 	background-color: #4a0404;
 }
 
-.pokedex-div {
-	margin: auto;
-	padding: 10px;
-	width: 75%;
-	text-align: center;
+.card-columns {
+	column-count: 4;
 }
 
-.pokemon-list {
-	display: grid;
-	grid-template-columns: 200px 200px 200px;
-	grid-gap: 30px;
-	justify-content: center;
-	margin: auto;
-	list-style: none;
+@media all and (max-width: 1300px) {
+	.card-columns {
+		column-count: 3;
+	}
+}
 
+@media all and (max-width: 1000px) {
+	.card-columns {
+		column-count: 2;
+	}
+}
+
+@media all and (max-width: 500px) {
+	.card-columns {
+		column-count: 1;
+	}
 }
 
 .modal-content {

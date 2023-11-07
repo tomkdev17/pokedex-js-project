@@ -17,14 +17,14 @@ let pokemonRepository = (function(){
 	}
 	//Creates a list of buttons with the name of each pokemon 
 	function addListItem(pokemon){
-		let pokemonList = document.querySelector('.list-group');
+		let pokemonList = document.querySelector('.list-unstyled');
 		let listItem = document.createElement('li');
 		let button = document.createElement('button');
 
 		button.innerText = pokemon.name; 
 		button.setAttribute('data-toggle', 'modal');
 		button.setAttribute('data-target', '#pokemonModal');
-		button.classList.add('btn','btn-outline-primary','btn-block', 'poke-button');
+		button.classList.add('btn','btn-outline-danger','btn-block', 'poke-button');
 		listItem.classList.add('list-group-item');
 		listItem.appendChild(button);
 		pokemonList.appendChild(listItem);
